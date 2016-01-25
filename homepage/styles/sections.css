@@ -1,0 +1,35 @@
+#mainjumbo{
+  background-color: #2D9AA6;
+  padding: 10px;
+  text-align: center;
+  height: 300px;
+  color: white;
+  font-size: 25px;
+}
+
+#content_left{
+  background-color: #F23322;
+  padding: 10px;
+  text-align: center;
+  height: 700px;
+  color: white;
+  font-size: 25px;
+}
+
+#content_main{
+  background-color: #073A59;
+  padding: 10px;
+  text-align: center;
+  height: 700px;
+  color: white;
+  font-size: 25px;
+}
+
+#content_right{
+  background-color: #A61B1B;
+  padding: 10px;
+  text-align: center;
+  height: 700px;
+  color: white;
+  font-size: 25px;
+}

@@ -1,0 +1,41 @@
+<%inherit file="base.htm" />
+
+<%block name = "main_menu">
+    <!-- Collect the nav links, forms, and other content for toggling -->
+      </div>
+        <a href="/homepage/index"><img src= "${STATIC_URL}homepage/media/Images/CHFLogo.png" id = "mainimage" class="navbar-brand img-responsive"></a>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class= "${ 'active' if request.dmp_router_page == 'index' else ''}"><a href="/homepage/index">Home <span class="sr-only">(current)</span></a></li>
+            <li class= "${ 'active' if request.dmp_router_page == 'about' else ''}"><a href="/homepage/about">About</a></li>
+            <li class= "${ 'active' if request.dmp_router_page == 'contact' else ''}"><a href="/homepage/contact">Contact</a></li>
+            <li class= "${ 'active' if request.dmp_router_page == 'terms' else ''}"><a href="/homepage/terms">Terms</a></li>
+            <li class= "${ 'active' if request.dmp_router_page == 'faq' else ''}"><a href="/homepage/faq">FAQ</a></li>
+            <li class= "${ 'active' if request.dmp_router_page == 'sections' else ''}"><a href="/homepage/sections">Sections</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome John!<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Events</a></li>
+                <li><a href="#">Learn More</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">My Account</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Log Out</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+</%block>
+
+
+##Another navbar option:
+
+##%for title, page in menu_items:
+  ##<li class= "${ 'active' if request.dmp_router_page == page else '' }"><a href = "/homepage/${ page}/">$ {title}</a></li>
+##%endfor
+
+
+##%>

@@ -1,0 +1,10 @@
+#sidenav{
+  position: fixed;
+  margin-top: 80px;
+  color: black;
+  font-size: 12px;
+  border-right: 1px solid #204060;
+  padding-right: 10px;
+
+
+}

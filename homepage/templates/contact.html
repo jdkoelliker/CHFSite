@@ -1,0 +1,43 @@
+<%inherit file="base_app.htm" />
+
+<%block name  = "title">Contact</%block>
+
+<%block name="content_top">
+    <div class="content_top">
+        <img src = "${STATIC_URL}homepage/media/Images/sunset.jpg" class = "align-center img-responsive"/>
+        <div class = "carousel-caption">
+          <div class = "wordalign" id = "mainword">
+          <h1>Contact Us</h1>
+          </div>
+        </div>
+    </div>
+</%block>
+<%block name = "mainbody">
+<div id = "contactus">
+  <div class = "container">
+    <div class = "row">
+      <div class = "col-md-offset-2 col-md-10">
+        <form action = "/homepage/contact" method = "POST">
+          <table>
+            <tr>
+              <td>Your name: <br></td>
+              <td><input type = "text" name = "yourname" size = "50" class = "form-control"/><br></td>
+            </tr>
+            <tr>
+              <td>Your email: <br></td>
+              <td><input type = "text" name = "youremail" size = "50" class = "form-control"/><br></td>
+            </tr>
+            <tr>
+              <td>Message: </td>
+              <td><textarea name = "yourmessage" cols = "50" rows = "5" class = "form-control"/></textarea><br><br></td><br>
+            </tr>
+            <tr>
+              <td></td><td><input type = "Submit" class="btn btn-success btn-md" value = "Submit" /><br><br></td>
+            </tr>
+          </table>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</%block>

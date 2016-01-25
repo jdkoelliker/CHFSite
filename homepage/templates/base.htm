@@ -1,0 +1,112 @@
+## this is the skeleton of all pages on in this app - it defines the basic html tags
+
+## set up a StaticRenderer object to enable the CSS/JS automatic inclusion magic.
+<%! from django_mako_plus.controller import static_files %>
+<%  static_renderer = static_files.StaticRenderer(self) %>
+
+<!DOCTYPE html>
+<html>
+  <meta charset="UTF-8">
+  <head>
+
+    <link rel="icon" href="${STATIC_URL}homepage/media/Images/flagicon.ico" type="image/x-icon"/>
+    <title> CHF - <%block name = "title"></%block></title>
+
+    ## add any site-wide scripts or CSS here; for example, jquery:
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!--THIS IS HOW YOU LINK TO A BOOTSTRAP STYLESHEET!!!!-->
+    <link rel= "stylesheet" href = "${STATIC_URL}homepage/media/Bootstrap/css/bootstrap.min.css"/>
+
+    ## render the css with the same name as this page
+    ${ static_renderer.get_template_css(request, context)  }
+
+  </head>
+  <body>
+    <div id = "maintenance_message">
+        <%block name = "maintenance_message">
+            SITE UNDER MAINTENANCE
+        </%block>
+
+    </div>
+  <header>
+    <div id = "main_menu">
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <%block name = "main_menu">
+            </%block>
+          </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    </div>
+    <div id = "user_message">
+        <%block name = "user_message">
+        <div class="alert alert-danger alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <strong>Alert!</strong> This is a dismissable user alert message.
+        </div>
+        </%block>
+    </div>
+  </header>
+  <%block name = "entirebody">
+    <%block name = "mainjumbo">
+        <div class = "jumbotron">
+          <div class="container">
+            <div class = "row">
+              <div class = "col-md-12">
+              <%block name = "content_top">
+                Top content goes here.
+              </%block>
+              </div>
+            </div>
+          </div>
+      </div>
+      </%block>
+      <%block name = "mainbody">
+      <div class = "container">
+        <div class="row">
+          <div class = "col-md-3">
+            <%block name="content_left">
+              Site content goes here in sub-templates.
+            </%block>
+          </div>
+          <div class = "col-md-6">
+            <%block name="content_main">
+              Site content goes here in sub-templates.
+            </%block>
+          </div>
+          <div class = "col-md-3">
+            <%block name="content_right">
+              Site content goes here in sub-templates.
+            </%block>
+          </div>
+        </div>
+      </div>
+      </%block>
+  <footer>
+    <%block name = "footer">
+      ##We need to put this here so that we don't have to repeat this throughout the entire site.
+      <%
+        import datetime
+        current_year =  datetime.date.today().year
+      %>
+      Copyright &copy; John Koelliker ${current_year}
+    </%block>
+  </footer>
+  </%block>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="${ STATIC_URL}homepage/media/bootstrap/js/bootstrap.min.js"></script>
+
+  ## render the JS with the same name as this page
+  ${ static_renderer.get_template_js(request, context)  }
+
+</body>
+</html>
