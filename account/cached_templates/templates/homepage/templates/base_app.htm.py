@@ -5,10 +5,10 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1454601363.409931
+_modified_time = 1454457017.78196
 _enable_loop = True
 _template_filename = '/Users/JohnKoelliker/Desktop/PythonProjects/CHFSite/homepage/templates/base_app.htm'
-_template_uri = 'base_app.htm'
+_template_uri = 'homepage/templates/base_app.htm'
 _source_encoding = 'utf-8'
 import os, os.path, re, json
 _exports = ['main_menu']
@@ -29,9 +29,9 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
+        request = context.get('request', UNDEFINED)
         def main_menu():
             return render_main_menu(context._locals(__M_locals))
-        request = context.get('request', UNDEFINED)
         STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n\n')
@@ -39,7 +39,9 @@ def render_body(context,**pageargs):
             context['self'].main_menu(**pageargs)
         
 
+        __M_writer('\n\n\n')
         __M_writer('\n')
+        __M_writer('\n\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -48,9 +50,9 @@ def render_body(context,**pageargs):
 def render_main_menu(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
+        request = context.get('request', UNDEFINED)
         def main_menu():
             return render_main_menu(context)
-        request = context.get('request', UNDEFINED)
         STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n    <!-- Collect the nav links, forms, and other content for toggling -->\n      </div>\n        <a href="/homepage/index"><img src= "')
@@ -67,14 +69,9 @@ def render_main_menu(context,**pageargs):
         __M_writer(str( 'active' if request.dmp_router_page == 'faq' else ''))
         __M_writer('"><a href="/homepage/faq">FAQ</a></li>\n            <li class= "')
         __M_writer(str( 'active' if request.dmp_router_page == 'sections' else ''))
-        __M_writer('"><a href="/homepage/sections">Sections</a></li>\n          </ul>\n\n          <ul class="nav navbar-nav navbar-right">\n')
-        if request.user.is_authenticated():
-            __M_writer('              <li class="dropdown">\n                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Welcome, ')
-            __M_writer(str( request.user))
-            __M_writer('!<span class="caret"></span></a>\n                <ul class="dropdown-menu">\n                  <li><a href="#">Events</a></li>\n                  <li><a href="#">Learn More</a></li>\n                  <li><a href="#">FAQ</a></li>\n                  <li role="separator" class="divider"></li>\n                  <li><a href="/account/myaccount/">My Account</a></li>\n                  <li role="separator" class="divider"></li>\n                  <li><a href="/account/logout/">Log Out</a></li>\n                </ul>\n              </li>\n')
-        else:
-            __M_writer('              <li id = "loginbutton"><a>Login</a></li>\n              <li id = "createaccountbutton"><a>Create Account</a></li>\n')
-        __M_writer('\n          </ul>\n        </div>\n')
+        __M_writer('"><a href="/homepage/sections">Sections</a></li>\n          </ul>\n          <ul class="nav navbar-nav navbar-right">\n            <li>\n              <button href = "#" id = "loginbutton" class = "btn">\n                Login\n              </button>\n            </li>\n            <li class="dropdown">\n              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> Welccome, ')
+        __M_writer(str( request.user))
+        __M_writer(' !<span class="caret"></span></a>\n              <ul class="dropdown-menu">\n                <li><a href="#">Events</a></li>\n                <li><a href="#">Learn More</a></li>\n                <li><a href="#">FAQ</a></li>\n                <li role="separator" class="divider"></li>\n                <li><a href="#">My Account</a></li>\n                <li role="separator" class="divider"></li>\n                <li><a href="/account/logout/">Log Out</a></li>\n              </ul>\n            </li>\n\n          </ul>\n        </div>\n')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -82,6 +79,6 @@ def render_main_menu(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"uri": "base_app.htm", "source_encoding": "utf-8", "line_map": {"64": 11, "65": 12, "66": 12, "67": 13, "68": 13, "69": 14, "70": 14, "71": 18, "72": 19, "73": 20, "74": 20, "75": 31, "76": 32, "77": 35, "83": 77, "28": 0, "37": 1, "42": 38, "48": 3, "56": 3, "57": 6, "58": 6, "59": 9, "60": 9, "61": 10, "62": 10, "63": 11}, "filename": "/Users/JohnKoelliker/Desktop/PythonProjects/CHFSite/homepage/templates/base_app.htm"}
+{"filename": "/Users/JohnKoelliker/Desktop/PythonProjects/CHFSite/homepage/templates/base_app.htm", "line_map": {"64": 10, "65": 11, "66": 11, "67": 12, "68": 12, "69": 13, "70": 13, "71": 14, "72": 14, "73": 23, "74": 23, "80": 74, "28": 0, "37": 1, "42": 37, "43": 41, "44": 45, "50": 3, "58": 3, "59": 6, "60": 6, "61": 9, "62": 9, "63": 10}, "uri": "homepage/templates/base_app.htm", "source_encoding": "utf-8"}
 __M_END_METADATA
 """

@@ -1,4 +1,4 @@
-<%inherit file="base.htm" />
+<%inherit file="homepage/templates/base.htm" />
 
 <%block name = "main_menu">
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -7,11 +7,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li class= "${ 'active' if request.dmp_router_page == 'index' else ''}"><a href="/homepage/index">Home <span class="sr-only">(current)</span></a></li>
-            <li class= "${ 'active' if request.dmp_router_page == 'about' else ''}"><a href="/homepage/about">About</a></li>
-            <li class= "${ 'active' if request.dmp_router_page == 'contact' else ''}"><a href="/homepage/contact">Contact</a></li>
-            <li class= "${ 'active' if request.dmp_router_page == 'terms' else ''}"><a href="/homepage/terms">Terms</a></li>
-            <li class= "${ 'active' if request.dmp_router_page == 'faq' else ''}"><a href="/homepage/faq">FAQ</a></li>
-            <li class= "${ 'active' if request.dmp_router_page == 'sections' else ''}"><a href="/homepage/sections">Sections</a></li>
+            <li class= "${ 'active' if request.dmp_router_page == 'myaccount' else ''}"><a href="/account/myaccount">My Account</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right">

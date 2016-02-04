@@ -63,34 +63,30 @@
             <div class = "row">
               <div class = "col-md-12">
               <%block name = "content_top">
-                Top content goes here.
               </%block>
               </div>
             </div>
           </div>
       </div>
-      </%block>
-      <%block name = "mainbody">
+    </%block>
+    <%block name = "mainbody">
       <div class = "container">
         <div class="row">
           <div class = "col-md-3">
             <%block name="content_left">
-              Site content goes here in sub-templates.
             </%block>
           </div>
           <div class = "col-md-6">
             <%block name="content_main">
-              Site content goes here in sub-templates.
             </%block>
           </div>
           <div class = "col-md-3">
             <%block name="content_right">
-              Site content goes here in sub-templates.
             </%block>
           </div>
         </div>
       </div>
-      </%block>
+    </%block>
   <footer>
     <%block name = "footer">
       ##We need to put this here so that we don't have to repeat this throughout the entire site.
@@ -104,6 +100,8 @@
   </%block>
   <!-- Latest compiled and minified JavaScript -->
   <script src="${ STATIC_URL}homepage/media/bootstrap/js/bootstrap.min.js"></script>
+  <script src="${ STATIC_URL }homepage/media/jquery.loadmodal.js"></script>
+  <script src="${ STATIC_URL }homepage/media/jquery.form.js"></script>
 
   ## render the JS with the same name as this page
   ${ static_renderer.get_template_js(request, context)  }

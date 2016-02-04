@@ -5,13 +5,13 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1454608806.725716
+_modified_time = 1454605074.233221
 _enable_loop = True
 _template_filename = '/Users/JohnKoelliker/Desktop/PythonProjects/CHFSite/homepage/templates/base.htm'
-_template_uri = 'base.htm'
+_template_uri = 'homepage/templates/base.htm'
 _source_encoding = 'utf-8'
 import os, os.path, re, json
-_exports = ['footer', 'content_right', 'mainbody', 'main_menu', 'maintenance_message', 'title', 'content_left', 'content_top', 'user_message', 'entirebody', 'mainjumbo', 'content_main']
+_exports = ['main_menu', 'mainbody', 'mainjumbo', 'content_right', 'content_left', 'footer', 'title', 'content_main', 'content_top', 'entirebody', 'user_message', 'maintenance_message']
 
 
 from django_mako_plus.controller import static_files 
@@ -20,33 +20,33 @@ def render_body(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
         __M_locals = __M_dict_builtin(pageargs=pageargs)
-        def footer():
-            return render_footer(context._locals(__M_locals))
-        def content_right():
-            return render_content_right(context._locals(__M_locals))
-        def mainbody():
-            return render_mainbody(context._locals(__M_locals))
         def main_menu():
             return render_main_menu(context._locals(__M_locals))
-        def maintenance_message():
-            return render_maintenance_message(context._locals(__M_locals))
+        def mainbody():
+            return render_mainbody(context._locals(__M_locals))
+        self = context.get('self', UNDEFINED)
+        request = context.get('request', UNDEFINED)
+        def mainjumbo():
+            return render_mainjumbo(context._locals(__M_locals))
+        def content_right():
+            return render_content_right(context._locals(__M_locals))
         def user_message():
             return render_user_message(context._locals(__M_locals))
         def content_left():
             return render_content_left(context._locals(__M_locals))
         def title():
             return render_title(context._locals(__M_locals))
+        def maintenance_message():
+            return render_maintenance_message(context._locals(__M_locals))
         def content_main():
             return render_content_main(context._locals(__M_locals))
-        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
-        self = context.get('self', UNDEFINED)
         def content_top():
             return render_content_top(context._locals(__M_locals))
+        def footer():
+            return render_footer(context._locals(__M_locals))
+        STATIC_URL = context.get('STATIC_URL', UNDEFINED)
         def entirebody():
             return render_entirebody(context._locals(__M_locals))
-        def mainjumbo():
-            return render_mainjumbo(context._locals(__M_locals))
-        request = context.get('request', UNDEFINED)
         __M_writer = context.writer()
         __M_writer('\n')
         __M_writer('\n')
@@ -102,32 +102,11 @@ def render_body(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_footer(context,**pageargs):
+def render_main_menu(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def footer():
-            return render_footer(context)
-        __M_writer = context.writer()
-        __M_writer('\n')
-        __M_writer('      ')
-
-        import datetime
-        current_year =  datetime.date.today().year
-              
-        
-        __M_writer('\n      Copyright &copy; John Koelliker ')
-        __M_writer(str(current_year))
-        __M_writer('\n    ')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
-def render_content_right(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def content_right():
-            return render_content_right(context)
+        def main_menu():
+            return render_main_menu(context)
         __M_writer = context.writer()
         __M_writer('\n            ')
         return ''
@@ -138,14 +117,14 @@ def render_content_right(context,**pageargs):
 def render_mainbody(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def content_left():
-            return render_content_left(context)
-        def mainbody():
-            return render_mainbody(context)
         def content_main():
             return render_content_main(context)
+        def mainbody():
+            return render_mainbody(context)
         def content_right():
             return render_content_right(context)
+        def content_left():
+            return render_content_left(context)
         __M_writer = context.writer()
         __M_writer('\n      <div class = "container">\n        <div class="row">\n          <div class = "col-md-3">\n            ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'content_left'):
@@ -168,11 +147,30 @@ def render_mainbody(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_main_menu(context,**pageargs):
+def render_mainjumbo(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def main_menu():
-            return render_main_menu(context)
+        def mainjumbo():
+            return render_mainjumbo(context)
+        def content_top():
+            return render_content_top(context)
+        __M_writer = context.writer()
+        __M_writer('\n        <div class = "jumbotron">\n          <div class="container">\n            <div class = "row">\n              <div class = "col-md-12">\n              ')
+        if 'parent' not in context._data or not hasattr(context._data['parent'], 'content_top'):
+            context['self'].content_top(**pageargs)
+        
+
+        __M_writer('\n              </div>\n            </div>\n          </div>\n      </div>\n    ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_content_right(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def content_right():
+            return render_content_right(context)
         __M_writer = context.writer()
         __M_writer('\n            ')
         return ''
@@ -180,13 +178,34 @@ def render_main_menu(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_maintenance_message(context,**pageargs):
+def render_content_left(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def maintenance_message():
-            return render_maintenance_message(context)
+        def content_left():
+            return render_content_left(context)
         __M_writer = context.writer()
-        __M_writer('\n            SITE UNDER MAINTENANCE\n        ')
+        __M_writer('\n            ')
+        return ''
+    finally:
+        context.caller_stack._pop_frame()
+
+
+def render_footer(context,**pageargs):
+    __M_caller = context.caller_stack._push_frame()
+    try:
+        def footer():
+            return render_footer(context)
+        __M_writer = context.writer()
+        __M_writer('\n')
+        __M_writer('      ')
+
+        import datetime
+        current_year =  datetime.date.today().year
+              
+        
+        __M_writer('\n      Copyright &copy; John Koelliker ')
+        __M_writer(str(current_year))
+        __M_writer('\n    ')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -203,11 +222,11 @@ def render_title(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_content_left(context,**pageargs):
+def render_content_main(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def content_left():
-            return render_content_left(context)
+        def content_main():
+            return render_content_main(context)
         __M_writer = context.writer()
         __M_writer('\n            ')
         return ''
@@ -227,37 +246,25 @@ def render_content_top(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_user_message(context,**pageargs):
-    __M_caller = context.caller_stack._push_frame()
-    try:
-        def user_message():
-            return render_user_message(context)
-        __M_writer = context.writer()
-        __M_writer('\n        <div class="alert alert-danger alert-dismissible" role="alert">\n          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>\n          <strong>Alert!</strong> This is a dismissable user alert message.\n        </div>\n        ')
-        return ''
-    finally:
-        context.caller_stack._pop_frame()
-
-
 def render_entirebody(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def footer():
-            return render_footer(context)
-        def content_right():
-            return render_content_right(context)
         def mainbody():
             return render_mainbody(context)
-        def content_left():
-            return render_content_left(context)
-        def content_top():
-            return render_content_top(context)
-        def entirebody():
-            return render_entirebody(context)
         def mainjumbo():
             return render_mainjumbo(context)
+        def content_right():
+            return render_content_right(context)
+        def content_left():
+            return render_content_left(context)
         def content_main():
             return render_content_main(context)
+        def content_top():
+            return render_content_top(context)
+        def footer():
+            return render_footer(context)
+        def entirebody():
+            return render_entirebody(context)
         __M_writer = context.writer()
         __M_writer('\n    ')
         if 'parent' not in context._data or not hasattr(context._data['parent'], 'mainjumbo'):
@@ -280,32 +287,25 @@ def render_entirebody(context,**pageargs):
         context.caller_stack._pop_frame()
 
 
-def render_mainjumbo(context,**pageargs):
+def render_user_message(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def content_top():
-            return render_content_top(context)
-        def mainjumbo():
-            return render_mainjumbo(context)
+        def user_message():
+            return render_user_message(context)
         __M_writer = context.writer()
-        __M_writer('\n        <div class = "jumbotron">\n          <div class="container">\n            <div class = "row">\n              <div class = "col-md-12">\n              ')
-        if 'parent' not in context._data or not hasattr(context._data['parent'], 'content_top'):
-            context['self'].content_top(**pageargs)
-        
-
-        __M_writer('\n              </div>\n            </div>\n          </div>\n      </div>\n    ')
+        __M_writer('\n        <div class="alert alert-danger alert-dismissible" role="alert">\n          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>\n          <strong>Alert!</strong> This is a dismissable user alert message.\n        </div>\n        ')
         return ''
     finally:
         context.caller_stack._pop_frame()
 
 
-def render_content_main(context,**pageargs):
+def render_maintenance_message(context,**pageargs):
     __M_caller = context.caller_stack._push_frame()
     try:
-        def content_main():
-            return render_content_main(context)
+        def maintenance_message():
+            return render_maintenance_message(context)
         __M_writer = context.writer()
-        __M_writer('\n            ')
+        __M_writer('\n            SITE UNDER MAINTENANCE\n        ')
         return ''
     finally:
         context.caller_stack._pop_frame()
@@ -313,6 +313,6 @@ def render_content_main(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"filename": "/Users/JohnKoelliker/Desktop/PythonProjects/CHFSite/homepage/templates/base.htm", "line_map": {"132": 84, "262": 59, "138": 72, "267": 71, "272": 89, "17": 4, "19": 0, "277": 98, "150": 72, "155": 77, "218": 65, "160": 81, "283": 60, "165": 85, "308": 80, "296": 66, "171": 44, "302": 80, "177": 44, "51": 2, "52": 4, "53": 5, "183": 27, "57": 5, "58": 12, "59": 12, "189": 27, "64": 13, "65": 16, "66": 19, "67": 19, "68": 22, "69": 22, "70": 22, "314": 308, "75": 29, "224": 65, "206": 76, "80": 45, "291": 60, "212": 76, "85": 56, "90": 100, "91": 102, "92": 102, "93": 103, "94": 103, "95": 104, "96": 104, "97": 107, "98": 107, "99": 107, "230": 51, "195": 13, "105": 91, "236": 51, "111": 91, "112": 93, "113": 93, "242": 59, "118": 96, "119": 97, "120": 97, "126": 84}, "source_encoding": "utf-8", "uri": "base.htm"}
+{"source_encoding": "utf-8", "uri": "homepage/templates/base.htm", "filename": "/Users/JohnKoelliker/Desktop/PythonProjects/CHFSite/homepage/templates/base.htm", "line_map": {"129": 72, "134": 77, "193": 91, "139": 81, "269": 59, "314": 308, "144": 85, "17": 4, "274": 71, "19": 0, "150": 60, "279": 89, "284": 98, "158": 60, "290": 51, "163": 66, "308": 27, "296": 51, "169": 84, "302": 27, "175": 84, "51": 2, "52": 4, "53": 5, "57": 5, "58": 12, "187": 76, "181": 76, "64": 13, "65": 16, "66": 19, "67": 19, "68": 22, "69": 22, "70": 22, "199": 91, "200": 93, "201": 93, "75": 29, "206": 96, "207": 97, "80": 45, "85": 56, "214": 13, "90": 100, "91": 102, "92": 102, "93": 103, "94": 103, "95": 104, "96": 104, "97": 107, "98": 107, "99": 107, "231": 80, "105": 44, "225": 80, "208": 97, "237": 65, "111": 44, "59": 12, "243": 65, "117": 72, "249": 59}}
 __M_END_METADATA
 """
