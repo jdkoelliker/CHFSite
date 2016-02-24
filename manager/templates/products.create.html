@@ -1,0 +1,23 @@
+<%inherit file="base_app.htm" />
+
+<%block name = "form_media">${ form.media }</%block>
+
+<%block name = "mainbody">
+  <div class = "container">
+    <div class = "row">
+    <h2>Create New Product</h2><hr>
+      <div class = "col-md-offset-1 col-md-11">
+        <form method="POST">
+          <table>
+            ${ form }
+          </table>
+          <br>
+          <input type= "submit" class="col-md-offset-1 btn btn-success btn-lg" value="Create Product"/>
+        </form><br>
+      </div>
+      <div class = "col-md-offset-2 col-md-10">
+        <a href="/manager/products">Back to the Product List &raquo</a><br><br>
+      </div>
+    </div>
+  </div>
+</%block>

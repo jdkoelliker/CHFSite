@@ -1,0 +1,74 @@
+<%inherit file="base_app.htm" />
+
+<%block name  = "title">Products</%block>
+
+<%block name = "mainbody">
+<div class = "container">
+  <div class = "row">
+    <div class = "col-md-10">
+      <h2>Product List</h2>
+    </div>
+    <div class = "col-md-2">
+      <p class = "text-right">
+        <a href = "/manager/products.create/" class = "btn btn-success">Create Product</a>
+      </p>
+    </div>
+  </div><hr>
+</div>
+<div id = "productlist">
+  <div class = "container">
+    <div class = "row">
+      <div class = "col-md-12">
+        <table class= "table table-striped">
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Image</th>
+            <th>Quantity</th>
+            <th></th>
+            <th>Manage</th>
+          </tr>
+          %for product in products:
+            <tr>
+              <td>${ product.name}</td>
+              <td>${ product.__class__.__name__}</td>
+              <td style = "max-width:30px"><img src = "${STATIC_URL}/manager/media/product_images/${ product.image }" class = "img-responsive"></td>
+              <td>
+                %if product.__class__.__name__ == 'BulkProduct':
+                  <span class = "quantity">${ product.quantity}</span>
+                  <a href = "/manager/products.get_quantity/${ product.id }" data-id= "${product.id}" class = "glyphicon glyphicon-refresh refresh_button"></a>
+                %endif
+              </td>
+              <td></td>
+              <td>
+                <a href = "/manager/products.edit/${ product.id }/">Edit</a>
+                |
+                <a href = "/manager/products.delete/${ product.id }/" class = "Delete">Delete</a>
+              </td>
+            </tr>
+          %endfor
+        </table>
+      </div>
+    </div>
+  </div><br><br>
+</div>
+
+
+<div class="modal fade" id = "delete_modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role = "document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type = "button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Delete</h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete this user?</p>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-default" data-dismiss="modal">Cancel</a>
+        <a id = "confirm_delete_button" class="btn btn-success">Delete User</a>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+</%block>
