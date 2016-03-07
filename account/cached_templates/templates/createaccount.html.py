@@ -5,7 +5,7 @@ STOP_RENDERING = runtime.STOP_RENDERING
 __M_dict_builtin = dict
 __M_locals_builtin = locals
 _magic_number = 10
-_modified_time = 1454622936.783164
+_modified_time = 1455724578.140924
 _enable_loop = True
 _template_filename = '/Users/JohnKoelliker/Desktop/PythonProjects/CHFSite/account/templates/createaccount.html'
 _template_uri = 'createaccount.html'
@@ -52,7 +52,7 @@ def render_content(context,**pageargs):
             return render_content(context)
         __M_writer = context.writer()
         __M_writer('\n  <form action="/account/createaccount/" id = "createaccountform" method="POST">\n    <table id = "myform">\n      ')
-        __M_writer(str( form.as_table() ))
+        __M_writer(str( form ))
         __M_writer('\n    </table>\n    <div class = "container">\n      <div class = "row">\n        <div class = "col-md-offset-1">\n          <br><input type="submit" class="btn btn-info btn-sm" value="Create Account"/>\n        </div>\n      </div>\n    </div>\n  </form>\n')
         return ''
     finally:
@@ -61,6 +61,6 @@ def render_content(context,**pageargs):
 
 """
 __M_BEGIN_METADATA
-{"line_map": {"36": 1, "54": 3, "55": 6, "56": 6, "41": 16, "28": 0, "62": 56, "47": 3}, "filename": "/Users/JohnKoelliker/Desktop/PythonProjects/CHFSite/account/templates/createaccount.html", "source_encoding": "utf-8", "uri": "createaccount.html"}
+{"source_encoding": "utf-8", "line_map": {"36": 1, "54": 3, "55": 6, "56": 6, "41": 16, "28": 0, "62": 56, "47": 3}, "uri": "createaccount.html", "filename": "/Users/JohnKoelliker/Desktop/PythonProjects/CHFSite/account/templates/createaccount.html"}
 __M_END_METADATA
 """

@@ -21,11 +21,13 @@
     ## render the css with the same name as this page
     ${ static_renderer.get_template_css(request, context)  }
 
+    <%block name = "form_media">
+
+    </%block>
   </head>
   <body>
     <div id = "maintenance_message">
         <%block name = "maintenance_message">
-            SITE UNDER MAINTENANCE
         </%block>
 
     </div>
@@ -49,10 +51,10 @@
     </div>
     <div id = "user_message">
         <%block name = "user_message">
-        <div class="alert alert-danger alert-dismissible" role="alert">
+        <!-- <div class="alert alert-danger alert-dismissible" role="alert">
           <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <strong>Alert!</strong> This is a dismissable user alert message.
-        </div>
+        </div> -->
         </%block>
     </div>
   </header>

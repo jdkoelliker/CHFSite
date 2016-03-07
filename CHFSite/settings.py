@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'polymorphic',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -40,6 +41,10 @@ INSTALLED_APPS = [
     'django_mako_plus.controller',
     'account',
     'homepage',
+    'manager',
+    'catalog',
+    'event',
+    'bootstrap3_datetime',
 
 ]
 
@@ -84,7 +89,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'CHF',
         'USER': 'postgres',
-        'PASSWORD': 'ISCore1',
+        'PASSWORD': 'brasilia16',
         'HOST': 'localhost',
     },
     # 'default': {
